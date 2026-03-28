@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TransacNow Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/TransactNowlogo.png') }}">
+</head>
+<body>
+
+<header>
+    <img src="{{ url_for('static', filename='images/TransactNowlogo.png') }}">
+    <p class="t">Transact</p>
+    <p class="n">Now</p>
+    <a href="{{ url_for('register') }}" class="headerlink">Register</a>
+    <a href="#" class="headerlink">About us</a>
+</header>
+
+<div class="form-side-container">
+    <h2 class="t2">Transact</h2>
+    <h2 class="n2">Now</h2>
+    <p>Your trusted online bank partner.</p>
+</div>
+
+<div class="login-form">
+    <h1>TransactNow Login</h1>
+    {% if message %}
+        <p class="message">{{ message }}</p>
+    {% endif %}
+    <form method="POST" action="{{ url_for('login') }}">
+        <label for="user_id">User ID</label>
+        <input type="text" id="user_id" name="user_id" required>
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="submit">Login</button>
+    </form>
+    <p class="register-link">Don't have an account? <a href="{{ url_for('register') }}">Register here</a></p>
+</div>
+
+<!-- First Infographic -->
+<div class="infographic-container">
+    <img src="{{ url_for('static', filename='images/onlinebanking.jpg') }}" alt="Infographic">
+    <div class="infographic-text">
+        <h2>Fast, safe, and reliable</h2>
+        <p>Experience seamless online banking with TransactNow. Our platform offers a user-friendly interface, robust security measures, and 24/7 customer support to ensure your banking needs are met efficiently and securely.</p>
+    </div>
+</div>   
+
+<!-- Second Infographic -->
+<div class="infographic-container2">
+    <img src="{{ url_for('static', filename='images/handshake.jpg') }}" alt="Infographic">
+    <div class="infographic-text2">
+        <h2>We value our clients</h2>
+        <p>At TransactNow, our clients are at the heart of everything we do. We’re committed to earning your trust through reliable service, transparent communication, and solutions that truly support your financial journey. Your goals matter and we’re here to help you reach them, every step of the way.</p>
+    </div>
+</div>
+
+<!-- Future Section -->
+<div class="future-container">
+    <h2>Banking made easy, for everyone.</h2>
+    <p>Join us and become part of a network built on trust, innovation, and shared success. At TransactNow, we’re committed to delivering meaningful solutions and long-term value—for our clients, our partners, and the communities we serve.</p>
+    <img src="{{ url_for('static', filename='images/orange4.jpg') }}" alt="Future Banking">
+    <a href="{{ url_for('register') }}">Sign up</a>
+</div>
+
+<!-- Services Section -->
+<div class="services-container">
+    <a class="terms-and-conditions" href="#">
+        <img src="{{ url_for('static', filename='images/terms-and-conditions.png') }}" alt="Terms and Conditions">
+        <h2>Terms and conditions</h2>     
+    </a>
+    <a class="privacy-policy" href="#">
+        <img src="{{ url_for('static', filename='images/privacy-policy.png') }}" alt="Privacy Policy">
+        <h2>Privacy Policy</h2>
+    </a>
+    <a class="contact-us" href="#">
+        <img src="{{ url_for('static', filename='images/contact.png') }}" alt="Contact Us">
+        <h2>Contact Us</h2>     
+    </a>
+    <a class="faq" href="#">
+        <img src="{{ url_for('static', filename='images/faq.png') }}" alt="FAQ">
+        <h2>FAQ</h2>
+    </a>
+</div>
+
+<footer>
+    <img src="{{ url_for('static', filename='images/TransactNow.png') }}" style="width:auto; height:160px;">
+    <div class="copyright">
+        <p>|&copy; 2024 TransactNow. All rights reserved.</p>
+        <p>|Jose Rizal Street, Iloilo City, Philippines</p> 
+    </div> 
+    <div class="privacy">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">FAQ</a>
+        <a href="#">Terms and Conditions</a>
+    </div>
+</footer>
+
+</body>
+</html>

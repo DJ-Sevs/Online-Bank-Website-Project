@@ -1,0 +1,100 @@
+@font-face {
+  font-family: Renade;
+  src: url(fonts/Ranade_Complete/Ranade_Complete/Fonts/OTF/Ranade-Regular.otf);
+}
+@font-face {
+  font-family: Satoshi;
+  src: url(fonts/Satoshi_Complete/Satoshi_Complete/Fonts/OTF/Satoshi-Regular.otf);
+}
+
+html,body {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: Satoshi, sans-serif;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+  align-items: stretch;
+}
+
+.bg-img {
+  flex: 1;
+  background-image: url('../static/images/register.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.form {
+  flex: 1;
+  max-width: 400px; /* optional */
+  padding: 40px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+h2 {
+  margin-bottom: 25px;
+  color: #333;
+  font-family: Renade, serif;
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  height: 100vh;
+}
+
+form label {
+  text-align: left;
+  font-size: 14px;
+  color: #555;
+}
+
+form input {
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  width: 100%;
+}
+
+form button {
+  padding: 12px;
+  background: #4facfe;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-top: 10px;
+}
+
+form button:hover {
+  background: #00c6ff;
+}
+
+p {
+  margin-top: 15px;
+  font-size: 14px;
+  text-align: center;
+}
+
+a {
+  color: #4facfe;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TransactNow - Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h2>Welcome, {{ user['fullname'] }}</h2>
+
+    <div class="balance-card">
+      <h3>Current Balance</h3>
+      <p>₱{{ balance }}</p>
+    </div>
+
+    {% if message %}
+      <p class="message">{{ message }}</p>
+    {% endif %}
+
+    <div class="actions">
+      <div class="card">
+        <h3>Deposit</h3>
+        <form method="POST">
+          <input type="hidden" name="action" value="deposit">
+          <input type="number" name="amount" placeholder="Enter amount" step="0.01" required>
+          <button type="submit">Deposit</button>
+        </form>
+      </div>
+
+      <div class="card">
+        <h3>Withdraw</h3>
+        <form method="POST">
+          <input type="hidden" name="action" value="withdraw">
+          <input type="number" name="amount" placeholder="Enter amount" step="0.01" required>
+          <button type="submit">Withdraw</button>
+        </form>
+      </div>
+
+      <div class="card">
+        <h3>Transfer</h3>
+        <form method="POST">
+          <input type="hidden" name="action" value="transfer">
+          <input type="text" name="target" placeholder="Recipient ID" required>
+          <input type="number" name="amount" placeholder="Enter amount" step="0.01" required>
+          <button type="submit">Transfer</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="history">
+  <h3>Transaction History</h3>
+  <ul>
+    {% for h in history %}
+      <li class="{{ h[0] }}">
+        {% if h[2] %}
+          {{ h[2].strftime("%Y-%m-%d %H:%M:%S") }}
+        {% else %}
+          Unknown Date
+        {% endif %}
+         - {{ h[0].capitalize() }} ₱{{ "%.2f"|format(h[1]) }}
+        {% if h[0] == 'transfer' and h[3] %}
+          to User ID {{ h[3] }}
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+
+
+    <a href="{{ url_for('login') }}" class="logout">Logout</a>
+  </div>
+</body>
+</html>
